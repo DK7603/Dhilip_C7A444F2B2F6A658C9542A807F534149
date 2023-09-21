@@ -1,20 +1,24 @@
-# Leap year
+# 1.1 Implement recursive function to calculate the factorial of a given.ef fact_rec(n):
 
 """
-year % 4== 0 &
-year % 100 ! == 0 /
-year % 400 == 0
+1! = 1×1
+2! = 2×1!---->2×1
+3! = 3×2!---->3×2×1
+.
+.
+10! = 10×9!--->10×9×8...×1
 
+Formula - n × (n-1)!
 """
-def isLeapYear(year):
-  if (year %  4 == 0 and  year % 100 !=0) or year % 400 == 0:
-    return True
+
+
+def fact_rec(n):
+  if n==0 or n==1:
+    return 1
   else:
-    return False
+    return n*fact_rec(n-1)
 
-year = int(input("Enter a year : "))
+number = 4
+res = fact_rec(number)
 
-if isLeapYear(year):
-  print('{} is a leap year.'.format(isLeapYear))
-else:
-  print('{} is a not leap year.'.format(year))
+print ("The factorial of {}is {}.". format (number,res))
